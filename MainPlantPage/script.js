@@ -53,8 +53,8 @@ ref4.once("value").then((snapshot4) => {
   return (img.src = photoURL);
 });
 
-ref8.once("value").then((snapshot4) => {
-  const data4 = snapshot8.val();
+ref8.once("value").then((snapshot8) => {
+  const data8 = snapshot8.val();
   var photoURL = data8.ESP32CAM2;
   var img = document.getElementById("img2");
   return (img.src = photoURL);
