@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="MainBox">
+      <h1>당신의 식물을 선택하세요</h1>
+      <label for="plantname">식물 이름</label>
+      <input type="text" id="plantname" required /><br />
+      <label for="category">식물 종 선택:</label>
+      <select id="category" onchange="updateDropdown()">
+        <option value="">선택</option>
+        <option value="plant">꽃</option>
+        <option value="tree">나무</option>
+      </select>
+      <select id="sub-category" disabled>
+        <option value="">미정</option>
+      </select>
+      <br />
+
+      <button id="add-button" onclick="addData()">데이터 추가</button>
+    </div>
+    <button
+      onclick="window.location.href='../MainPlantPage/MainPlantPage.html'"
+    >
+      다음으로 넘어가기
+    </button>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

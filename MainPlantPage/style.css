@@ -1,0 +1,87 @@
+@font-face {
+  font-family: "cookie";
+  src: url("../font/CookieRunBold.otf");
+}
+
+body {
+  font-family: "cookie";
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+.sensor-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.sensor {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.sensor-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.sensor-value {
+  font-size: 24px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+#board-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+#board-table th,
+#board-table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+#board-table th {
+  background-color: #f2f2f2;
+}
+
+#board-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#board-table tr:hover {
+  background-color: #e2e2e2;
+}
+
+#board-container {
+  max-width: 600px;
+  margin: 0 auto;
+}

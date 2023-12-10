@@ -1,0 +1,41 @@
+@font-face {
+  font-family: "cookie";
+  src: url("../font/CookieRunBold.otf");
+}
+
+body {
+  font-family: "cookie";
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.RealMainBox {
+  margin-top: 15rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: "cookie";
+}
+
+.MainBox {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 15rem;
+  height: 10rem;
+  gap: 1rem;
+}
+
+#greeting {
+  opacity: 0;
+  transition: opacity 1.5s; /* 1.5초 동안 투명도 변화 적용 */
+}

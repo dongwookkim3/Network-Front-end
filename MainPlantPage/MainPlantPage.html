@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="board-container">
+      <table id="board-table">
+        <!-- 여기에 테이블 내용이 동적으로 추가됩니다. -->
+      </table>
+    </div>
+
+    <div class="sensor-container">
+      <div class="sensor">
+        <div class="sensor-title">온도</div>
+        <div class="sensor-value" id="container1"></div>
+      </div>
+      <div class="sensor">
+        <div class="sensor-title">습도</div>
+        <div class="sensor-value" id="container2"></div>
+      </div>
+      <div class="image-container">
+        <img src="" id="img1" />
+        <img src="" id="img2" />
+      </div>
+      <h1 id="unzi"></h1>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
