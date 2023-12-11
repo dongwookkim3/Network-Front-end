@@ -22,7 +22,7 @@ const ref2 = database.ref("Smart_Plant/DHT2");
 const ref3 = database.ref("Smart_Plant/GYRO");
 const ref4 = database.ref("Smart_Plant/PHOTO/CAM1");
 const ref5 = database.ref("Smart_Plant/PLANTS");
-const ref6 = database.ref("Smart_Plant/WARNING");
+const ref6 = database.ref("Smart_Plant");
 const ref7 = database.ref("Smart_Plant/PLANTS");
 const ref8 = database.ref("Smart_Plant/PHOTO/CAM2");
 
