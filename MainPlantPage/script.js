@@ -35,8 +35,8 @@ ref1
       return ref3.once("value").then((snapshot3) => {
         const data3 = snapshot3.val();
         // 데이터 처리
-        const humidity = (data1.humidity + data2.humidity) / 2;
-        const temperature = (data1.temperature + data2.temperature) / 2;
+        const humidity = ((data1.humidity + data2.humidity) / 2).toFixed(2);
+        const temperature = ((data1.temperature + data2.temperature) / 2).toFixed(2);
         document.querySelector("#container1").innerHTML = temperature + "°C";
         document.querySelector("#container2").innerHTML = humidity + "%";
       });
