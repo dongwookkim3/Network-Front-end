@@ -53,6 +53,13 @@ ref4.once("value").then((snapshot4) => {
   return (img.src = photoURL);
 });
 
+ref8.once("value").then((snapshot8) => {
+  const data8 = snapshot8.val();
+  var photoURL = data8.ESP32CAM2;
+  var img = document.getElementById("img2");
+  return (img.src = photoURL);
+});
+
 //ref5.once("value").then((snapshot5) => {
 //  const data5 = snapshot5.val();
 //  return (document.querySelector("#name").innerHTML = data5.name);
