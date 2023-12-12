@@ -33,15 +33,15 @@ ref1
     const data1 = snapshot1.val();
     return ref2.once("value").then((snapshot2) => {
       const data2 = snapshot2.val();
-      return ref3.once("value").then((snapshot3) => {
-        const data3 = snapshot3.val();
+      return ref9.once("value").then((snapshot9) => {
+        const data9 = snapshot9.val();
         return ref9.once("value").then((snapshot9) => {
-          const soilMoisture = snapshot9.val().SoilMoisture;
+          const soilMoisture = ((data9.SoilMoisture/1024)*100).toFixed(2);
           const humidity = ((data1.humidity + data2.humidity) / 2).toFixed(2);
           const temperature = ((data1.temperature + data2.temperature) / 2).toFixed(2);
           document.querySelector("#container1").innerHTML = temperature + "°C";
           document.querySelector("#container2").innerHTML = humidity + "%";
-          document.querySelector("#container3").innerHTML = (soilMoisture / 1024) * 100 + "%";
+          document.querySelector("#container3").innerHTML = soilMoisture + "%";
         });
       });
     });
