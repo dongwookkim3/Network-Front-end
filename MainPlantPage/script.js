@@ -35,15 +35,13 @@ ref1
       const data2 = snapshot2.val();
       return ref3.once("value").then((snapshot3) => {
         const data3 = snapshot3.val();
-        // 데이터 처리
-        const humidity = ((data1.humidity + data2.humidity) / 2).toFixed(2);
-        const temperature = ((data1.temperature + data2.temperature) / 2).toFixed(2);
-        document.querySelector("#container1").innerHTML = temperature + "°C";
-        document.querySelector("#container2").innerHTML = humidity + "%";
-        
         return ref9.once("value").then((snapshot9) => {
           const soilMoisture = snapshot9.val().SoilMoisture;
-          document.querySelector("#container3").innerHTML = (soilMoisture/1024)*100 + "%";
+          const humidity = ((data1.humidity + data2.humidity) / 2).toFixed(2);
+          const temperature = ((data1.temperature + data2.temperature) / 2).toFixed(2);
+          document.querySelector("#container1").innerHTML = temperature + "°C";
+          document.querySelector("#container2").innerHTML = humidity + "%";
+          document.querySelector("#container3").innerHTML = (soilMoisture / 1024) * 100 + "%";
         });
       });
     });
@@ -73,7 +71,7 @@ ref6.once("value").then((snapshot6) => {
 
 ref9.once("value").then((snapshot9) => {
   const data9 = snapshot9.val();
-  if (data9.SoilMOISTURE )
+  if (data9.SoilMOISTURE)
 })
 //ref7.once("value").then((snapshot7) => {
 //  const data7 = snapshot7.val();
