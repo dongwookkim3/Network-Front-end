@@ -25,6 +25,7 @@ const ref5 = database.ref("Smart_Plant/PLANTS");
 const ref6 = database.ref("Smart_Plant");
 const ref7 = database.ref("Smart_Plant/PLANTS");
 const ref8 = database.ref("Smart_Plant/PHOTO/CAM2");
+const ref9 = database.ref("Smart_Plant/SOILMOISTURE");
 
 ref1
   .once("value")
@@ -39,6 +40,11 @@ ref1
         const temperature = ((data1.temperature + data2.temperature) / 2).toFixed(2);
         document.querySelector("#container1").innerHTML = temperature + "°C";
         document.querySelector("#container2").innerHTML = humidity + "%";
+        
+        return ref9.once("value").then((snapshot9) => {
+          const soilMoisture = snapshot9.val().SoilMoisture;
+          document.querySelector("#container3").innerHTML = (soilMoisture/1024)*100 + "%";
+        });
       });
     });
   })
@@ -50,13 +56,6 @@ ref4.once("value").then((snapshot4) => {
   const data4 = snapshot4.val();
   var photoURL = data4.ESP32CAM1;
   var img = document.getElementById("img1");
-  return (img.src = photoURL);
-});
-
-ref8.once("value").then((snapshot8) => {
-  const data8 = snapshot8.val();
-  var photoURL = data8.ESP32CAM2;
-  var img = document.getElementById("img2");
   return (img.src = photoURL);
 });
 
@@ -72,6 +71,10 @@ ref6.once("value").then((snapshot6) => {
   }
 });
 
+ref9.once("value").then((snapshot9) => {
+  const data9 = snapshot9.val();
+  if (data9.SoilMOISTURE )
+})
 //ref7.once("value").then((snapshot7) => {
 //  const data7 = snapshot7.val();
 //  return (document.querySelector("#sub").innerHTML = data7.subCategory);
