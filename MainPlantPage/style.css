@@ -12,7 +12,6 @@ body {
 
 .sensor-container {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -47,6 +46,7 @@ h1 {
 
 .image-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
