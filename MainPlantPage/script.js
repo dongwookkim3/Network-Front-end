@@ -36,7 +36,7 @@ ref1
       return ref9.once("value").then((snapshot9) => {
         const data9 = snapshot9.val();
         return ref9.once("value").then((snapshot9) => {
-          const soilMoisture = ((data9.SoilMoisture/1024)*100).toFixed(2);
+          const soilMoisture = (100-(data9.SoilMoisture/1024)*100).toFixed(2);
           const humidity = ((data1.humidity + data2.humidity) / 2).toFixed(2);
           const temperature = ((data1.temperature + data2.temperature) / 2).toFixed(2);
           document.querySelector("#container1").innerHTML = temperature + "°C";
