@@ -27,28 +27,24 @@ const ref7 = database.ref("Smart_Plant/PLANTS");
 const ref8 = database.ref("Smart_Plant/PHOTO/CAM2");
 const ref9 = database.ref("Smart_Plant/SOILMOISTURE");
 
-ref1
-  .once("value")
-  .then((snapshot1) => {
-    const data1 = snapshot1.val();
-    return ref2.once("value").then((snapshot2) => {
-      const data2 = snapshot2.val();
-      return ref9.once("value").then((snapshot9) => {
-        const data9 = snapshot9.val();
-        return ref9.once("value").then((snapshot9) => {
-          const soilMoisture = (100-(data9.SoilMoisture/1024)*100).toFixed(2);
-          const humidity = ((data1.humidity + data2.humidity) / 2).toFixed(2);
-          const temperature = ((data1.temperature + data2.temperature) / 2).toFixed(2);
-          document.querySelector("#container1").innerHTML = temperature + "°C";
-          document.querySelector("#container2").innerHTML = humidity + "%";
-          document.querySelector("#container3").innerHTML = soilMoisture + "%";
-        });
-      });
+ref1.once("value").then((snapshot1) => {
+  const data1 = snapshot1.val();
+  return ref2.once("value").then((snapshot2) => {
+    const data2 = snapshot2.val();
+    return ref9.once("value").then((snapshot9) => {
+      const data9 = snapshot9.val();
+      const soilMoisture = (100 - (data9.SoilMoisture / 1024) * 100).toFixed(2);
+      const humidity = ((data1.humidity + data2.humidity) / 2).toFixed(2);
+      const temperature = ((data1.temperature + data2.temperature) / 2).toFixed(2);
+      document.querySelector("#container1").innerHTML = temperature + "°C";
+      document.querySelector("#container2").innerHTML = humidity + "%";
+      document.querySelector("#container3").innerHTML = soilMoisture + "%";
     });
-  })
-  .catch((error) => {
-    console.error(error);
   });
+})
+  .catch ((error) => {
+  console.error(error);
+});
 
 ref4.once("value").then((snapshot4) => {
   const data4 = snapshot4.val();
@@ -69,10 +65,6 @@ ref6.once("value").then((snapshot6) => {
   }
 });
 
-ref9.once("value").then((snapshot9) => {
-  const data9 = snapshot9.val();
-  if (data9.SoilMOISTURE)
-})
 //ref7.once("value").then((snapshot7) => {
 //  const data7 = snapshot7.val();
 //  return (document.querySelector("#sub").innerHTML = data7.subCategory);
