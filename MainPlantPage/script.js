@@ -9,13 +9,9 @@ const firebaseConfig = {
   measurementId: "G-B42952QHB3",
 };
 
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// 데이터베이스 변수
 const database = firebase.database();
-
-// 데이터 불러오기
 
 const ref1 = database.ref("Smart_Plant/DHT1");
 const ref2 = database.ref("Smart_Plant/DHT2");
@@ -39,7 +35,8 @@ ref1.once("value").then((snapshot1) => {
       document.querySelector("#container1").innerHTML = temperature + "°C";
       document.querySelector("#container2").innerHTML = humidity + "%";
       document.querySelector("#container3").innerHTML = soilMoisture + "%";
-   
+      
+      suggestsoilMoisture(soilMoisture)
       suggestTemperature(temperature);
       suggestHumidity(humidity);
     });
@@ -49,23 +46,28 @@ ref1.once("value").then((snapshot1) => {
   console.error(error);
 });
 
+function suggestsoilMoisture(soilMoisture){
+  if (soilMoisture<=31.64) {
+    document.querySelector('#soi').innerHTML = '물이 너무 부족해요.'
+  }
+}
 function suggestTemperature(temperature) {
   if (temperature < 16) {
     const diff = (16 - temperature);
-    document.querySelector("#tem").innerHTML = `온도가 너무 낮습니다. ${diff}도 정도 높여주세요.`;
+    document.querySelector("#tem").innerHTML = `온도가 너무 낮아요. ${diff}도 정도 높여주세요.`;
   } else if (temperature > 25) {
     const diff = (temperature - 25);
-    document.querySelector("#tem").innerHTML = `온도가 너무 높습니다. ${diff}도 정도 낮춰주세요.`;
+    document.querySelector("#tem").innerHTML = `온도가 너무 높아요. ${diff}도 정도 낮춰주세요.`;
   }
 }
 
 function suggestHumidity(humidity) {
   if (humidity < 40) {
     const diff = (40 - humidity);
-    document.querySelector("#hum").innerHTML = `습도가 너무 낮습니다. ${diff}% 정도 높여주세요.`;
+    document.querySelector("#hum").innerHTML = `습도가 너무 낮아요. ${diff}% 정도 높여주세요.`;
   } else if (humidity > 70) {
     const diff = (humidity - 70);
-    document.querySelector("#hum").innerHTML = `습도가 너무 높습니다. ${diff}% 정도 낮춰주세요.`;
+    document.querySelector("#hum").innerHTML = `습도가 너무 높아요. ${diff}% 정도 낮춰주세요.`;
   }
 }
 
@@ -84,22 +86,12 @@ ref8.once("value").then((snapshot8) => {
   return (img.src = photoURL);
 });
 
-//ref5.once("value").then((snapshot5) => {
-//  const data5 = snapshot5.val();
-//  return (document.querySelector("#name").innerHTML = data5.name);
-//});
-
 ref6.once("value").then((snapshot6) => {
   const data6 = snapshot6.val();
   if (data6.unzi === 1) {
     return (document.querySelector("#unzi").innerHTML = "식물이 넘어졌습니다!");
   }
 });
-
-//ref7.once("value").then((snapshot7) => {
-//  const data7 = snapshot7.val();
-//  return (document.querySelector("#sub").innerHTML = data7.subCategory);
-//});
 
 let boards = [];
 let names = [];
@@ -123,19 +115,15 @@ const getBoards = async () => {
   getLatestBoard();
 };
 
-// boards 배열의 값을 화면에 표시하는 함수
 function displayBoards(board) {
   const table = document.getElementById("board-table");
 
-  // table 요소가 유효하지 않으면 함수를 종료
   if (!table) {
     return;
   }
 
-  // 기존 테이블 내용 초기화
   table.innerHTML = "";
 
-  // 테이블 헤더 생성
   const headerRow = document.createElement("tr");
   const nameHeader = document.createElement("th");
   nameHeader.textContent = "이름";
@@ -145,7 +133,6 @@ function displayBoards(board) {
   headerRow.appendChild(subCategoryHeader);
   table.appendChild(headerRow);
 
-  // 데이터 행 생성 및 삽입
   const dataRow = document.createElement("tr");
   const nameCell = document.createElement("td");
   nameCell.textContent = board.name;
@@ -156,7 +143,6 @@ function displayBoards(board) {
   table.appendChild(dataRow);
 }
 
-// getLatestBoard 함수 정의
 const getLatestBoard = () => {
   if (boards.length > 0) {
     const latestBoard = boards[boards.length - 1];
@@ -164,5 +150,4 @@ const getLatestBoard = () => {
   }
 };
 
-// getBoards 함수 호출
 getBoards();
