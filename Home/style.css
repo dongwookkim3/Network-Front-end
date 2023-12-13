@@ -37,5 +37,6 @@ h1 {
 
 #greeting {
   opacity: 0;
-  transition: opacity 1.5s; /* 1.5초 동안 투명도 변화 적용 */
+  transition: opacity 1.5s;
+  /* 1.5초 동안 투명도 변화 적용 */
 }
