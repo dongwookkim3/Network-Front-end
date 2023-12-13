@@ -39,12 +39,40 @@ ref1.once("value").then((snapshot1) => {
       document.querySelector("#container1").innerHTML = temperature + "°C";
       document.querySelector("#container2").innerHTML = humidity + "%";
       document.querySelector("#container3").innerHTML = soilMoisture + "%";
+   
+      suggestTemperature(temperature);
+      suggestHumidity(humidity);
     });
   });
 })
   .catch ((error) => {
   console.error(error);
 });
+
+function suggestTemperature(temperature) {
+  if (temperature < 16) {
+    const diff = (16 - temperature).toFixed(2);
+    document.querySelector("#unzi").innerHTML = `온도가 너무 낮습니다. ${diff}도 정도 높여주세요.`;
+  } else if (temperature > 25) {
+    const diff = (temperature - 25).toFixed(2);
+    document.querySelector("#unzi").innerHTML = `온도가 너무 높습니다. ${diff}도 정도 낮추세요.`;
+  } else {
+    document.querySelector("#unzi").innerHTML = "온도가 적절합니다.";
+  }
+}
+
+function suggestHumidity(humidity) {
+  if (humidity < 40) {
+    const diff = (40 - humidity).toFixed(2);
+    document.querySelector("#unzi").innerHTML = `습도가 너무 낮습니다. ${diff}% 정도 높여주세요.`;
+  } else if (humidity > 70) {
+    const diff = (humidity - 70).toFixed(2);
+    document.querySelector("#unzi").innerHTML = `습도가 너무 높습니다. ${diff}% 정도 낮추세요.`;
+  } else {
+    document.querySelector("#unzi").innerHTML = "습도가 적절합니다.";
+  }
+}
+
 
 ref4.once("value").then((snapshot4) => {
   const data4 = snapshot4.val();
