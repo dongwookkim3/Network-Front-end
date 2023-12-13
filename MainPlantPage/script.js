@@ -92,7 +92,7 @@ ref8.once("value").then((snapshot8) => {
 ref6.once("value").then((snapshot6) => {
   const data6 = snapshot6.val();
   if (data6.unzi === 1) {
-    return (document.querySelector("#unzi").innerHTML = "넘어졌습니다!");
+    return (document.querySelector("#unzi").innerHTML = "식물이 넘어졌습니다!");
   }
 });
 
