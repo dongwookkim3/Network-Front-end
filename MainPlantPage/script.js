@@ -51,20 +51,20 @@ function suggestsoilMoisture(soilMoisture) {
 }
 function suggestTemperature(temperature) {
   if (temperature < 16) {
-    const diff = (16 - temperature);
+    const diff = (16 - temperature).toFixed(2);
     document.querySelector("#tem").innerHTML = `온도가 너무 낮아요. ${diff}도 정도 높여주세요.`;
   } else if (temperature > 25) {
-    const diff = (temperature - 25);
+    const diff = (temperature - 25).toFixed(2);
     document.querySelector("#tem").innerHTML = `온도가 너무 높아요. ${diff}도 정도 낮춰주세요.`;
   }
 }
 
 function suggestHumidity(humidity) {
   if (humidity < 40) {
-    const diff = (40 - humidity);
+    const diff = (40 - humidity).toFixed(2);
     document.querySelector("#hum").innerHTML = `습도가 너무 낮아요. ${diff}% 정도 높여주세요.`;
   } else if (humidity > 70) {
-    const diff = (humidity - 70);
+    const diff = (humidity - 70).toFixed(2);
     document.querySelector("#hum").innerHTML = `습도가 너무 높아요. ${diff}% 정도 낮춰주세요.`;
   }
 }
