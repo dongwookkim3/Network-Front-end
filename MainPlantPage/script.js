@@ -1,12 +1,12 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyBdvMg1__shb51NA8BlG4Mn8IdNz_HK8E0",
-  authDomain: "smartplant-89fe3.firebaseapp.com",
-  databaseURL: "https://smartplant-89fe3-default-rtdb.firebaseio.com/",
-  projectId: "smartplant-89fe3",
-  storageBucket: "smartplant-89fe3.appspot.com",
-  messagingSenderId: "1072141389605",
-  appId: "1:1072141389605:web:9ff12db3a87bdc0571d4cc",
-  measurementId: "G-B42952QHB3",
+  apiKey: "",
+  authDomain: "",
+  databaseURL: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
+  measurementId: "",
 };
 
 firebase.initializeApp(firebaseConfig);
